@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: springBootDemo
+server:
+  port: 7001
