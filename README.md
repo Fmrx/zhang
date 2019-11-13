@@ -8,6 +8,9 @@ spring boot 2.0 脚手架
 整合MyBatis实现简单的增删改查
 mysql版本:8.0+
 
+# 2019-11-13
+整合FastDFS实现文件上传
+
 FastDFS
 安装教程参考：https://blog.51cto.com/oldcat1981/1766810
 
