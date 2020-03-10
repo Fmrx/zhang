@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 /**
  * Create BY zhang
@@ -56,6 +57,18 @@ public class UsersController {
         String userId = "1111";
         usersService.deleteUserBeanByUserId(userId);
         return ResultUtil.success();
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ResultVO login(HttpSession session) {
+        session.setAttribute("userId", "123");
+        return ResultUtil.success();
+    }
+
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    public ResultVO get(HttpSession session) {
+        String userId= session.getAttribute("userId").toString();
+        return ResultUtil.success(userId);
     }
 
 
