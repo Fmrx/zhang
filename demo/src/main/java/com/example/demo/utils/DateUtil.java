@@ -1,11 +1,15 @@
 package com.example.demo.utils;
 
+import org.springframework.util.StringUtils;
+
+import javax.xml.soap.Node;
 import java.time.Clock;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.MonthDay;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class DateUtil {
 
@@ -154,6 +158,21 @@ public class DateUtil {
             "IN","ID"
     );
 
+    private static String a = null;
+
+    public static String test1(int b) {
+        if(b == 1) {
+            a = "z";
+        }else {
+            a = "c";
+        }
+        return a;
+    }
+
+    public static void test2() {
+        System.out.println(a);
+    }
+
 
     public static void main(String[] args) {
         demo1();
@@ -167,17 +186,43 @@ public class DateUtil {
         demo9();
         demo10();
         demo11();
-        List<Long> list = new ArrayList<Long>();
-        List<Long> list1 = new ArrayList<>();
-        list.add(1l);
-        list.add(2l);
-        list.add(3l);
-        list.add(4l);
+        test1(1);
+        test2();
 
-        list1.add(4l);
-        list1.add(3l);
-        list1.add(5l);
-        list1.retainAll(list);
-        System.out.println(list1.toString());
+//        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor();
+//        Map map = new HashMap<>();
+//        map.put();
+
+//        String ea = "zhang";
+//        System.out.println(ea.hashCode());
+//
+//        int hashcode = ea.hashCode();
+//        System.out.println(115864556 >>> 16);
+//        System.out.println(hashcode ^ (hashcode >>> 16));
+        Map map = new HashMap(12, 0.75f);
+        map.put("1","2");
+        new HashMap<>();
+        new HashMap<>(11);
+        List list = new ArrayList<>();
+        List list1 = new ArrayList<>(100);
+        //list.add(111);
+        list1.add(111);
+        //000000000000000011011100111
+        //110111001111111001111101100
+        //110111001111111010100001011
+        //115864843
+        final int MAXIMUM_CAPACITY = 1 << 30;
+        int cap = 20;
+        int n = cap - 1;
+        n |= n >>> 1;
+        n |= n >>> 2;
+        n |= n >>> 4;
+        n |= n >>> 8;
+        n |= n >>> 16;
+        System.out.println((n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1);
+
+        new LinkedList<>();
+
     }
+
 }

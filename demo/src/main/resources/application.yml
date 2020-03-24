@@ -6,6 +6,15 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    pool: 6379
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
 server:
   port: 7001
 
@@ -18,4 +27,5 @@ fdfs:
     height: 150
   trackerList:            #TrackerList参数,支持多个
     - 106.13.19.86:22122
+
 
